@@ -1,6 +1,6 @@
--- Created by xvverr
--- Inspired by Rouxhaver's "Hacker chat" script
--- Fucking skid, if I discover you leaked this somewhere you will definitely have consequences. This is a private script under a license
+-- Created by xvverr!
+-- Inspired by Rouxhaver's "Hacker chat" script. Credits to him for the GUI.
+-- Fucking skid, this is a private licensed script. If I discover you leaking it, you will suffer consequences.
 
 a = "づトづ"
 b = "゠タび"
@@ -46,6 +46,13 @@ function isUserWhitelisted()
     return false
 end
 
+if not isUserWhitelisted() then
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "HashChat"; Text = "Failed to load HashChat. You are not authorized."; Duration = 5;
+    })
+    return
+end
+
 function convert(str)
     str = str:lower()
     return str:gsub("a",a):gsub("b",b):gsub("c",c):gsub("d",d):gsub("e",e):gsub("f",f):gsub("g",g):gsub("h",h):gsub("i",i):gsub("j",j):gsub("k",k):gsub("l",l):gsub("m",m):gsub("n",n):gsub("o",o):gsub("p",p):gsub("q",q):gsub("r",r):gsub("s",s):gsub("t",t):gsub("u",u):gsub("v",v):gsub("w",w):gsub("x",x):gsub("y",y):gsub("z",z)
@@ -61,6 +68,14 @@ function chat(str)
 end
 
 local player = game:GetService("Players").LocalPlayer
+
+if not isUserWhitelisted() then
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "HashChat"; Text = "Failed to load HashChat. You are not authorized."; Duration = 5;
+    })
+    return
+end
+
 local SG = Instance.new("ScreenGui", player.PlayerGui)
 local frame = Instance.new("Frame", SG)
 frame.Size = UDim2.new(0.2, 0, 0.2, 0)
@@ -134,7 +149,5 @@ if Coregui:FindFirstChild("BubbleChat") then
 end
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
-
-Title = "HashChat"; Text = "HashChat loaded successfully, enjoy!"})
-
-Duration = 5;
+    Title = "HashChat"; Text = "HashChat loaded successfully, enjoy!"; Duration = 5;
+})
