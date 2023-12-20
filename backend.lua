@@ -31,7 +31,6 @@ z = "げタく"
 
 local whitelist = {
     "Pablo_YesaPI",
-    "MissTheRage25",
     "amicoolenough331",
     "crossDaHeck",
 }
